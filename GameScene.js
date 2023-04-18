@@ -169,8 +169,9 @@ class GameScene extends Phaser.Scene {
         // Add share button
         const shareButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 70, 'Share on Twitter', { fontFamily: '"Press Start 2P"', fontSize: '24px', fill: '#FFF' }).setOrigin(0.5);
         shareButton.setInteractive({ useHandCursor: true });
+        const score = this.score;
         shareButton.on('pointerdown', () => {
-            const text = `I scored ${this.score} points in the Cat Memory Game!`;
+            const text = `I scored ${score} points in the Cat Memory Game!`;
             const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=CatMemoryGame`;
             window.open(url, '_blank');
         });

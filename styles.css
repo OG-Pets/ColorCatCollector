@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: blue;
+  }
+  
+  #game canvas {
+    display: block;
+  }
+  
+  
+  .how-to-play {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    color: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.how-to-play p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.how-to-play ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.how-to-play li {
+    margin-bottom: 10px;
+}

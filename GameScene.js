@@ -1,4 +1,4 @@
-const NUM_CATS = 5;
+const NUM_CATS = 3;
 const PREVIEW_DURATION = 5000; // Duration of the preview phase in milliseconds
 const CAT_SIZE = 0.5; // Cat size multiplier
 
@@ -6,12 +6,13 @@ class GameScene extends Phaser.Scene {
     constructor() {
         super('GameScene');
         this.score = 0;
-        this.lives = 10;
+        this.lives = 5;
         this.catOrder = [];
         this.selectedCats = [];
         this.previewActive = false;
         this.countdownText = null;
         this.playingPhaseTimer = null;
+        this.countdownTimer = null;
     }
 
     preload() {
@@ -105,6 +106,7 @@ class GameScene extends Phaser.Scene {
             gameObject.destroy();
 
             if (this.selectedCats.length === this.catOrder.length) {
+                this.playingPhaseTimer.remove(); // Add this line
                 this.score += NUM_CATS;
                 this.scoreText.setText(`Score: ${this.score}`);
                 this.resetGame();
@@ -122,6 +124,7 @@ class GameScene extends Phaser.Scene {
             }
         }
     }
+
 
     resetGame() {
         this.generateCatOrder();
@@ -158,13 +161,19 @@ class GameScene extends Phaser.Scene {
             }
         });
     }
-    
-
-
 
     gameOver() {
         // Show game over message
         const gameOverText = this.add.text(this.scale.width / 2, this.scale.height / 2, 'Game Over', { fontFamily: '"Press Start 2P"', fontSize: '48px', fill: '#FFF' }).setOrigin(0.5);
+
+        // Add share button
+        const shareButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 70, 'Share on Twitter', { fontFamily: '"Press Start 2P"', fontSize: '24px', fill: '#FFF' }).setOrigin(0.5);
+        shareButton.setInteractive({ useHandCursor: true });
+        shareButton.on('pointerdown', () => {
+            const text = `I scored ${this.score} points in the Cat Memory Game!`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=CatMemoryGame`;
+            window.open(url, '_blank');
+        });
 
         // Reset score and lives
         this.score = 0;
@@ -173,6 +182,7 @@ class GameScene extends Phaser.Scene {
         // Restart the game after 3 seconds
         setTimeout(() => {
             gameOverText.destroy();
+            shareButton.destroy();
             this.scoreText.setText('Score: 0');
             this.livesText.setText('Lives: 10');
             this.resetGame();
@@ -181,4 +191,3 @@ class GameScene extends Phaser.Scene {
 }
 
 window.GameScene = GameScene;
-

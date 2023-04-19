@@ -1,41 +1,41 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: blue;
-  }
-  
-  #game canvas {
-    display: block;
-  }
-  
-  
-  .how-to-play {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    color: #FFF;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: blue;
+}
+
+#game canvas {
+  display: block;
+  max-width: 100%; /* Ensure the canvas does not exceed the container's width */
+}
+
+.how-to-play {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  color: #FFF;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 90%; /* Use a percentage to make the container responsive */
+  margin: 20px auto;
+  line-height: 2;
 }
 
 .how-to-play p {
-    margin: 0;
-    margin-bottom: 10px;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
-.how-to-play ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.how-to-play li {
-    margin-bottom: 10px;
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  .how-to-play {
+    font-size: 14px; /* Increase the font size for larger screens */
+    width: 70%; /* Adjust the container width for larger screens */
+  }
 }

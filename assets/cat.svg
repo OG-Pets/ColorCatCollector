@@ -4,13 +4,18 @@
 	 viewBox="0 0 342.9 304.8" style="enable-background:new 0 0 342.9 304.8;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
+	.st1{opacity:0.3;fill:#231F20;}
 </style>
 <g>
-	<polygon class="st0" points="76.2,190.5 38.1,190.5 38.1,228.6 38.1,266.7 76.2,266.7 76.2,228.6 	"/>
-	<rect y="152.4" class="st0" width="38.1" height="38.1"/>
-	<rect x="76.2" y="266.7" class="st0" width="38.1" height="38.1"/>
-	<path class="st0" d="M304.8,0v38.1h-38.1v38.1h-38.1h-38.1V38.1h-38.1V0h-38.1v38.1v38.1v38.1v38.1v38.1v38.1v38.1h38.1v38.1h38.1
-		v-38.1h38.1h38.1v38.1h38.1v-38.1h38.1v-38.1v-38.1v-38.1v-38.1V76.2V38.1V0H304.8z M228.6,114.3v38.1h-38.1v-38.1H228.6z
-		 M304.8,152.4h-38.1v-38.1h38.1V152.4z"/>
+	<g>
+		<polygon class="st0" points="76.2,190.5 38.1,190.5 38.1,228.6 38.1,266.7 76.2,266.7 76.2,228.6 		"/>
+		<rect y="152.4" class="st0" width="38.1" height="38.1"/>
+		<rect x="76.2" y="266.7" class="st0" width="38.1" height="38.1"/>
+		<path class="st0" d="M304.8,0v38.1h-38.1v38.1h-38.1h-38.1V38.1h-38.1V0h-38.1v38.1v38.1v38.1v38.1v38.1v38.1v38.1h38.1v38.1h38.1
+			v-38.1h38.1h38.1v38.1h38.1v-38.1h38.1v-38.1v-38.1v-38.1v-38.1V76.2V38.1V0H304.8z M228.6,114.3v38.1h-38.1v-38.1
+			C190.5,114.3,228.6,114.3,228.6,114.3z M304.8,152.4h-38.1v-38.1h38.1V152.4z"/>
+	</g>
+	<rect x="266.7" y="38.1" class="st1" width="38.1" height="38.1"/>
+	<rect x="304.8" y="0" class="st1" width="38.1" height="38.1"/>
 </g>
 </svg>

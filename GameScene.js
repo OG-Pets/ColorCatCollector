@@ -1,6 +1,6 @@
 const NUM_CATS = 3;
 const PREVIEW_DURATION = 5000; // Duration of the preview phase in milliseconds
-const CAT_SIZE = 0.5; // Cat size multiplier
+const CAT_SIZE = 0.45; // Cat size multiplier
 
 class GameScene extends Phaser.Scene {
     constructor() {
@@ -28,6 +28,7 @@ class GameScene extends Phaser.Scene {
 
         this.scoreText = this.add.text(16, 16, 'Score: 0', textStyle);
         this.livesText = this.add.text(this.scale.width - 16, 16, 'Lives: 10', textStyle).setOrigin(1, 0);
+        
         this.input.on('gameobjectdown', this.onCatClicked, this);
         this.resetGame();
     }
@@ -80,22 +81,43 @@ class GameScene extends Phaser.Scene {
     createCats(centered) {
         this.cats = this.add.group();
         for (let i = 0; i < NUM_CATS; i++) {
-            const x = centered ? this.scale.width / 2 - ((NUM_CATS - 1) * 100 / 2) + (i * 100) : 100 + i * 200;
-            const y = this.scale.height / 2;
-            const cat = this.add.sprite(x, y, 'cat').setInteractive().setScale(CAT_SIZE);
-            cat.setTint(this.catOrder[i]);
-            cat.setData('order', i);
-            this.cats.add(cat);
+          const x = centered ? this.scale.width / 2 - ((NUM_CATS - 1) * 100 / 2) + (i * 100) : 100 + i * (this.scale.width / (NUM_CATS + 1));
+          const y = this.scale.height / 2;
+          const cat = this.add.sprite(x, y, 'cat').setInteractive().setScale(CAT_SIZE);
+          cat.setTint(this.catOrder[i]);
+          cat.setData('order', i);
+          this.cats.add(cat);
         }
-    }
+      }
+      
 
-    shuffleCats() {
+      shuffleCats() {
         this.cats.children.each(cat => {
-            const x = Phaser.Math.Between(100, 700);
-            const y = Phaser.Math.Between(100, 500);
-            cat.setPosition(x, y);
+          let x, y;
+          let hasOverlap;
+      
+          do {
+            x = Phaser.Math.Between(this.scale.width * 0.1, this.scale.width * 0.9);
+            y = Phaser.Math.Between(this.scale.height * 0.1, this.scale.height * 0.8);
+            hasOverlap = false;
+      
+            this.cats.children.each(otherCat => {
+              if (cat === otherCat) {
+                return;
+              }
+              const distance = Phaser.Math.Distance.Between(x, y, otherCat.x, otherCat.y);
+              if (distance < cat.displayWidth * CAT_SIZE * 1.2) {
+                hasOverlap = true;
+              }
+            });
+      
+          } while (hasOverlap);
+      
+          cat.setPosition(x, y);
         });
-    }
+      }
+      
+      
 
     onCatClicked(pointer, gameObject) {
         if (this.previewActive) return;

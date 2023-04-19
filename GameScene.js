@@ -1,6 +1,7 @@
 const NUM_CATS = 5;
 const NUM_LIVES = 3;
-const PREVIEW_DURATION = 5000; // Duration of the preview phase in milliseconds
+const PREVIEW_DURATION = 5000;
+const GAME_DURATION = 7000; // Duration of the preview phase in milliseconds
 const CAT_SIZE = 0.45; // Cat size multiplier
 
 class GameScene extends Phaser.Scene {
@@ -188,7 +189,7 @@ class GameScene extends Phaser.Scene {
     }
 
     startPlayingPhaseCountdown() {
-        const playingPhaseDuration = 5000; // 5 seconds
+        const playingPhaseDuration = GAME_DURATION; // 5 seconds
         this.playingPhaseTimer = this.showCountdown(playingPhaseDuration, () => {
             this.lives -= 1;
             this.livesText.setText(`Lives: ${this.lives}`);
@@ -218,10 +219,11 @@ class GameScene extends Phaser.Scene {
         const score = this.score;
         shareButton.on('pointerdown', () => {
             const text = `I scored ${score} points in #OGPet Memory Game!`;
-            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=OGPet`;
+            const imageURL = 'https://i.imgur.com/EkLer4g.png'; // Replace with your image URL
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=OGPet&attachment_url=${encodeURIComponent(imageURL)}`;
             window.open(url, '_blank');
         });
-
+        
         // Add restart button
         const restartButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 110, 'Restart', { fontFamily: '"Press Start 2P"', fontSize: '24px', fill: '#FFF' }).setOrigin(0.5);
         restartButton.setInteractive({ useHandCursor: true });

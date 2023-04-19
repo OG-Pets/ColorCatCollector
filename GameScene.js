@@ -1,4 +1,4 @@
-const NUM_CATS = 3;
+const NUM_CATS = 5;
 const NUM_LIVES = 3;
 const PREVIEW_DURATION = 5000; // Duration of the preview phase in milliseconds
 const CAT_SIZE = 0.45; // Cat size multiplier

@@ -16,7 +16,7 @@ body {
 
 .how-to-play {
   font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
+  font-size: 8px;
   /* background-color: rgba(0, 0, 0, 0.6); */
   color: #FFF;
   padding: 10px;
@@ -29,8 +29,12 @@ body {
 
 .how-to-play p {
   margin: 0;
+  font-size: 12px;
   margin-bottom: 10px;
+  text-align: justify;
 }
+
+
 
 /* Media query for larger screens */
 @media screen and (min-width: 768px) {

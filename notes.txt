@@ -1,0 +1,12 @@
+To execute the code in the browser, follow these steps:
+
+Open your browser (Google Chrome, Firefox, or any other modern browser).
+Load the game in the browser.
+Press Ctrl + Shift + J (on Windows/Linux) or Cmd + Option + J (on Mac) to open the Developer Tools (Console tab).
+In the console tab, you should see a command prompt (usually a ">"). Copy and paste the following code snippet:
+
+localStorage.removeItem('highScore');
+
+Press Enter to execute the code.
+Refresh the page by pressing F5 or the browser's refresh button.
+After completing these steps, the high score should be reset.

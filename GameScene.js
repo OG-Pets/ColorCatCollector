@@ -230,16 +230,16 @@ class GameScene extends Phaser.Scene {
             localStorage.setItem('highScore', this.score);
             this.highScoreText.setText(`High Score: ${this.score}`);
         }
-    
-        
+
+
         // Calculate font sizes based on screen width
         const gameOverFontSize = Math.min(this.scale.width * 0.1, 48);
         const buttonFontSize = Math.min(this.scale.width * 0.05, 24);
-    
+
         // Show game over message
         const gameOverText = this.add.text(this.scale.width / 2, this.scale.height / 2, 'Game Over', { fontFamily: '"Press Start 2P"', fontSize: `${gameOverFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
         gameOverText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);
-    
+
         // Add share button
         const shareButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 70, 'Share on Twitter', { fontFamily: '"Press Start 2P"', fontSize: `${buttonFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
         shareButton.setInteractive({ useHandCursor: true });
@@ -251,7 +251,7 @@ class GameScene extends Phaser.Scene {
             const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=OGPet&attachment_url=${encodeURIComponent(imageURL)}`;
             window.open(url, '_blank');
         });
-    
+
         // Add restart button
         const restartButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 110, 'Restart', { fontFamily: '"Press Start 2P"', fontSize: `${buttonFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
         restartButton.setInteractive({ useHandCursor: true });
@@ -264,7 +264,7 @@ class GameScene extends Phaser.Scene {
             this.lives = NUM_LIVES;
             this.scoreText.setText('Score: 0');
             this.livesText.setText(`Lives: ${NUM_LIVES}`);
-            this.gameOverActive = false; 
+            this.gameOverActive = false;
             this.resetGame();
         });
 

@@ -2,7 +2,18 @@ const NUM_CATS = 5;
 const NUM_LIVES = 3;
 const PREVIEW_DURATION = 5000;
 const GAME_DURATION = 7000; // Duration of the preview phase in milliseconds
-const CAT_SIZE = 0.45; // Cat size multiplier
+// const CAT_SIZE = 0.45; // Cat size multiplier
+const { catSize: CAT_SIZE, fontSize: FONT_SIZE } = getResponsiveSettings();
+
+function getResponsiveSettings() {
+    const isSmallScreen = window.innerWidth < 768;
+
+    const catSize = isSmallScreen ? 0.38 : 0.45;
+    const fontSize = isSmallScreen ? '15px' : '24px';
+
+    return { catSize, fontSize };
+}
+
 
 class GameScene extends Phaser.Scene {
     constructor() {
@@ -26,7 +37,7 @@ class GameScene extends Phaser.Scene {
     create() {
         const textStyle = {
             fontFamily: '"Press Start 2P"',
-            fontSize: '24px',
+            fontSize: FONT_SIZE,
             fill: '#FFF'
         };
 
@@ -50,7 +61,7 @@ class GameScene extends Phaser.Scene {
 
         const textStyle = {
             fontFamily: '"Press Start 2P"',
-            fontSize: '24px',
+            fontSize: FONT_SIZE,
             fill: '#FFF'
         };
 
@@ -90,8 +101,16 @@ class GameScene extends Phaser.Scene {
 
     createCats(centered) {
         this.cats = this.add.group();
+        const spacingPercent = 0.18; // Adjust this value to control the percentage of spacing between cats
+        const minSpacing = 50; // Minimum spacing in pixels
+        const maxSpacing = 120; // Maximum spacing in pixels
+        const totalSpacing = (NUM_CATS - 1) * spacingPercent;
+
         for (let i = 0; i < NUM_CATS; i++) {
-            const x = centered ? this.scale.width / 2 - ((NUM_CATS - 1) * 100 / 2) + (i * 100) : 100 + i * (this.scale.width / (NUM_CATS + 1));
+            const spacing = Math.min(Math.max(this.scale.width * spacingPercent, minSpacing), maxSpacing);
+            const x = centered
+                ? this.scale.width / 2 - ((NUM_CATS - 1) * spacing / 2) + (i * spacing)
+                : this.scale.width * (0.5 * (1 - totalSpacing) + i * spacingPercent);
             const y = this.scale.height / 2;
             const cat = this.add.sprite(x, y, 'cat').setInteractive().setScale(CAT_SIZE);
             cat.setTint(this.catOrder[i]);
@@ -101,6 +120,8 @@ class GameScene extends Phaser.Scene {
     }
 
 
+
+
     shuffleCats() {
         this.cats.children.each(cat => {
             let x, y;
@@ -108,7 +129,7 @@ class GameScene extends Phaser.Scene {
 
             do {
                 x = Phaser.Math.Between(this.scale.width * 0.1, this.scale.width * 0.9);
-                y = Phaser.Math.Between(this.scale.height * 0.1, this.scale.height * 0.8);
+                y = Phaser.Math.Between(this.scale.height * 0.2, this.scale.height * 0.8);
                 hasOverlap = false;
 
                 this.cats.children.each(otherCat => {
@@ -116,7 +137,7 @@ class GameScene extends Phaser.Scene {
                         return;
                     }
                     const distance = Phaser.Math.Distance.Between(x, y, otherCat.x, otherCat.y);
-                    if (distance < cat.displayWidth * CAT_SIZE * 1.2) {
+                    if (distance < cat.displayWidth * CAT_SIZE * 3) {
                         hasOverlap = true;
                     }
                 });
@@ -209,13 +230,20 @@ class GameScene extends Phaser.Scene {
             localStorage.setItem('highScore', this.score);
             this.highScoreText.setText(`High Score: ${this.score}`);
         }
-
+    
+        
+        // Calculate font sizes based on screen width
+        const gameOverFontSize = Math.min(this.scale.width * 0.1, 48);
+        const buttonFontSize = Math.min(this.scale.width * 0.05, 24);
+    
         // Show game over message
-        const gameOverText = this.add.text(this.scale.width / 2, this.scale.height / 2, 'Game Over', { fontFamily: '"Press Start 2P"', fontSize: '48px', fill: '#FFF' }).setOrigin(0.5);
-
+        const gameOverText = this.add.text(this.scale.width / 2, this.scale.height / 2, 'Game Over', { fontFamily: '"Press Start 2P"', fontSize: `${gameOverFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
+        gameOverText.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);
+    
         // Add share button
-        const shareButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 70, 'Share on Twitter', { fontFamily: '"Press Start 2P"', fontSize: '24px', fill: '#FFF' }).setOrigin(0.5);
+        const shareButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 70, 'Share on Twitter', { fontFamily: '"Press Start 2P"', fontSize: `${buttonFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
         shareButton.setInteractive({ useHandCursor: true });
+        shareButton.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);
         const score = this.score;
         shareButton.on('pointerdown', () => {
             const text = `I scored ${score} points in #OGPet Memory Game!`;
@@ -223,10 +251,11 @@ class GameScene extends Phaser.Scene {
             const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}&hashtags=OGPet&attachment_url=${encodeURIComponent(imageURL)}`;
             window.open(url, '_blank');
         });
-        
+    
         // Add restart button
-        const restartButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 110, 'Restart', { fontFamily: '"Press Start 2P"', fontSize: '24px', fill: '#FFF' }).setOrigin(0.5);
+        const restartButton = this.add.text(this.scale.width / 2, this.scale.height / 2 + 110, 'Restart', { fontFamily: '"Press Start 2P"', fontSize: `${buttonFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
         restartButton.setInteractive({ useHandCursor: true });
+        restartButton.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);
         restartButton.on('pointerdown', () => {
             gameOverText.destroy();
             shareButton.destroy();
@@ -238,6 +267,8 @@ class GameScene extends Phaser.Scene {
             this.gameOverActive = false; 
             this.resetGame();
         });
+
+
 
         // Reset score and lives
         this.score = 0;

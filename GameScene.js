@@ -28,6 +28,7 @@ class GameScene extends Phaser.Scene {
         this.playingPhaseTimer = null;
         this.countdownTimer = null;
         this.gameOverActive = false;
+
     }
 
     preload() {
@@ -50,10 +51,31 @@ class GameScene extends Phaser.Scene {
         this.highScoreText.setText(`High Score: ${this.highScore}`);
 
         this.input.on('gameobjectdown', this.onCatClicked, this);
-        this.resetGame();
+        // this.resetGame();
+
+        this.createStartButton();
     }
 
 
+
+    createStartButton() {
+        const startButtonFontSize = Math.min(this.scale.width * 0.05, 24);
+        this.startButton = this.add.text(this.scale.width / 2, this.scale.height / 2, 'START GAME', { fontFamily: '"Press Start 2P"', fontSize: `${startButtonFontSize}px`, fill: '#FFF' }).setOrigin(0.5);
+        this.startButton.setInteractive({ useHandCursor: true });
+        this.startButton.setShadow(2, 2, 'rgba(0,0,0,0.5)', 2);
+        this.startButton.on('pointerdown', () => {
+            this.startButton.destroy();
+            this.resetGame();
+        });
+
+        // Add mouse over effects for startButton
+        this.startButton.on('pointerover', () => {
+            this.startButton.setTint(0x00ff00);
+        });
+        this.startButton.on('pointerout', () => {
+            this.startButton.clearTint();
+        });
+    }
     showCountdown(duration, callback) {
         if (this.countdownText) {
             this.countdownText.destroy();
@@ -151,7 +173,7 @@ class GameScene extends Phaser.Scene {
 
 
     onCatClicked(pointer, gameObject) {
-        if (this.previewActive || this.gameOverActive) return;
+        if (this.previewActive) return;
 
         const catOrder = gameObject.getData('order');
         if (catOrder === this.selectedCats.length) {

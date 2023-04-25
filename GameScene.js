@@ -173,7 +173,7 @@ class GameScene extends Phaser.Scene {
 
 
     onCatClicked(pointer, gameObject) {
-        if (this.previewActive) return;
+        if (this.previewActive || this.gameOverActive) return;
 
         const catOrder = gameObject.getData('order');
         if (catOrder === this.selectedCats.length) {

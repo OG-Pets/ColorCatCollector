@@ -301,15 +301,16 @@ class GameScene extends Phaser.Scene {
 
     const score = this.score;
     shareButton.on("pointerdown", () => {
-      const text = `I scored ${score} points in #OGPets Memory Game!`;
+      const text = `I scored ${score} points in OG Pet Collector Memory Game!`;
       const imageURL = "https://i.imgur.com/EkLer4g.png"; // Replace with your image URL
       const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         text
       )}&url=${encodeURIComponent(
         window.location.href
-      )}&hashtags=OGPet&attachment_url=${encodeURIComponent(imageURL)}`;
+      )}&hashtags=OGPets,MOOAR&attachment_url=${encodeURIComponent(imageURL)}`;
       window.open(url, "_blank", "noopener,noreferrer");
     });
+  
 
     // Add restart button
     const restartButton = this.add

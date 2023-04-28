@@ -1,63 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      />
+      <link rel="stylesheet" href="styles.css" />
 
-<!DOCTYPE html>
-<html lang="en">
+      <!-- Favicon -->
+      <link
+        rel="apple-touch-icon"
+        sizes="76x76"
+        href="https://ogpets.xyz/assets/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="https://ogpets.xyz/assets/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="https://ogpets.xyz/assets/favicon-16x16.png"
+      />
+      <link rel="manifest" href="https://ogpets.xyz/assets/site.webmanifest" />
+      <link
+        rel="mask-icon"
+        href="https://ogpets.xyz/assets/safari-pinned-tab.svg"
+        color="#5bbad5"
+      />
+      <link rel="shortcut icon" href="https://ogpets.xyz/assets/favicon.ico" />
+      <meta name="msapplication-TileColor" content="#da532c" />
+      <meta
+        name="msapplication-config"
+        content="https://ogpets.xyz/assets/browserconfig.xml"
+      />
+      <meta name="theme-color" content="#ffffff" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" />
-    <link rel="stylesheet" href="styles.css" />
-    
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="76x76" href="http://ogpets.xyz/assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="http://ogpets.xyz/assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="http://ogpets.xyz/assets/favicon-16x16.png">
-    <link rel="manifest" href="http://ogpets.xyz/assets/site.webmanifest">
-    <link rel="mask-icon" href="http://ogpets.xyz/assets/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="http://ogpets.xyz/assets/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="http://ogpets.xyz/assets/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="OG Pet Collector is a fun and engaging memory game where you memorize the order of colored cats and select them after they're shuffled.">
-    <meta name="keywords" content="OG Pet Collector, memory game, cat game, pet game">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="OG Pet Collector - The Ultimate Memory Game" />
-    <meta property="og:description" content="Test your memory skills with OG Pet Collector, a fun and challenging game where you memorize the order of colored cats and select them after they're shuffled." />
-    <meta property="og:image" content="http://ogpets.xyz/assets/ogimage.png" />
-    <meta property="og:url" content="http://ogpets.xyz/" />
-    <meta property="og:type" content="website" />
+      <!-- SEO Meta Tags -->
+      <meta
+        name="description"
+        content="OG Pet Collector is a fun and engaging memory game where you memorize the order of colored cats and select them after they're shuffled."
+      />
+      <meta
+        name="keywords"
+        content="OG Pet Collector, memory game, cat game, pet game"
+      />
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OG Pet Collector - The Ultimate Memory Game">
-    <meta name="twitter:description" content="Test your memory skills with OG Pet Collector, a fun and challenging game where you memorize the order of colored cats and select them after they're shuffled.">
-    <meta name="twitter:image" content="http://ogpets.xyz/assets/ogimage.png">
-    
-    <title>OG Pet Collector</title>
-</head>
+      <!-- Open Graph Meta Tags -->
+      <meta
+        property="og:title"
+        content="OG Pet Collector - The Ultimate Memory Game"
+      />
+      <meta
+        property="og:description"
+        content="Test your memory skills with OG Pet Collector, a fun and challenging game where you memorize the order of colored cats and select them after they're shuffled."
+      />
+      <meta
+        property="og:image"
+        content="https://ogpets.xyz/assets/ogimage.png"
+      />
+      <meta property="og:url" content="https://ogpets.xyz/" />
+      <meta property="og:type" content="website" />
 
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content="OG Pet Collector - The Ultimate Memory Game"
+      />
+      <meta
+        name="twitter:description"
+        content="Test your memory skills with OG Pet Collector, a fun and challenging game where you memorize the order of colored cats and select them after they're shuffled."
+      />
+      <meta
+        name="twitter:image"
+        content="https://ogpets.xyz/assets/ogimage.png"
+      />
 
-<body>
+      <title>OG Pet Collector | v0.1.1</title>
+    </head>
 
-    <div id="game"></div>
-    <div class="how-to-play" id="how-to-play">
-        <p>HOW TO PLAY: Memorize the order of the colored cats during the preview phase. When the preview phase is over,
-            the cats will be shuffled.
-            Click on the pets in the order they appeared during the preview phase.
-            You have a limited amount of time to select the pets. If the time runs out or you click the wrong pet, you
-            lose a life.
-            The game ends when you run out of lives.</p>
-    </div>
+    <body>
+      <div id="game"></div>
+      <div class="how-to-play" id="how-to-play">
+        <p>
+          HOW TO PLAY: Memorize the order of the colored cats during the preview
+          phase. When the preview phase is over, the cats will be shuffled.
+          Click on the pets in the order they appeared during the preview phase.
+          You have a limited amount of time to select the pets. If the time runs
+          out or you click the wrong pet, you lose a life. The game ends when
+          you run out of lives.
+        </p>
+      </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
-    <script type="module" src="GameScene.js"></script>
-    <script type="module" src="main.js"></script>
-</body>
-
+      <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+      <script type="module" src="GameScene.js"></script>
+      <script type="module" src="main.js"></script>
+    </body>
+  </html>
 </html>

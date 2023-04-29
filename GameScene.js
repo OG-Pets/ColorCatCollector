@@ -268,20 +268,31 @@ class GameScene extends Phaser.Scene {
       localStorage.setItem("highScore", this.score);
       this.highScoreText.setText(`High Score: ${this.score}`);
     }
-
+  
     // Calculate font sizes based on screen width
     const gameOverFontSize = Math.min(this.scale.width * 0.1, 48);
     const buttonFontSize = Math.min(this.scale.width * 0.05, 24);
-
+  
     // Show game over message
     const gameOverText = this.add
-      .text(this.scale.width / 2, this.scale.height / 2, "Game Over", {
+      .text(this.scale.width / 2, this.scale.height / 2 - 50, "Game Over", {
         fontFamily: '"Press Start 2P"',
         fontSize: `${gameOverFontSize}px`,
         fill: "#FFF",
       })
       .setOrigin(0.5);
     gameOverText.setShadow(2, 2, "rgba(0,0,0,0.5)", 2);
+  
+    // Show final score
+    const finalScoreText = this.add
+      .text(this.scale.width / 2, this.scale.height / 2, `Score: ${this.score}`, {
+        fontFamily: '"Press Start 2P"',
+        fontSize: `${buttonFontSize}px`,
+        fill: "#FFF",
+      })
+      .setOrigin(0.5);
+    finalScoreText.setShadow(2, 2, "rgba(0,0,0,0.5)", 2);
+  
 
     // Add share button
     const shareButton = this.add
@@ -326,6 +337,7 @@ class GameScene extends Phaser.Scene {
       gameOverText.destroy();
       shareButton.destroy();
       restartButton.destroy();
+      finalScoreText.destroy(); 
       this.score = 0;
       this.lives = NUM_LIVES;
       this.scoreText.setText("Score: 0");

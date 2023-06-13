@@ -1,0 +1,79 @@
+.title {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* change to 'column' for vertical alignment */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+  
+  .star {
+    position: absolute;
+    background-color: #fff;
+    width: 6px;
+    height: 6px;
+    z-index: -1;
+    animation: moveStar linear infinite;
+  }
+  
+  @keyframes moveStar {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(100%);}
+  }
+  
+  .button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+    margin: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #0000ff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  .button:hover {
+    background-color: #0000ff;
+    color: #4AF39A;
+    transform: translateY(-2px);
+  }
+  
+  .button:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  #canvas {
+    width: 50vw; /* 50% of the viewport's width */
+    height: 28.125vw; /* maintain aspect ratio (675 is 56.25% of 1200) */
+    margin: 20px;
+    border: 1px solid #0000ff; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Optional: To add some space between the buttons */
+}

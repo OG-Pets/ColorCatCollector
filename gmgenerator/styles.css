@@ -38,7 +38,7 @@ body {
   .button {
     font-family: 'Press Start 2P', cursive;
     padding: 20px;
-    margin: 10px;
+    margin: 0px;
     font-size: 12px;
     color: #ffffff;
     background-color: #0000ff;
@@ -65,12 +65,62 @@ body {
     box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
   }
 
+  .buttond {
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+    margin: 0px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #0000ff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  .buttond:hover {
+    background-color: #4AF39A;
+    color: #000;
+    transform: translateY(-2px);
+  }
+  
+  .buttond:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
   #canvas {
-    width: 50vw; /* 50% of the viewport's width */
-    height: 28.125vw; /* maintain aspect ratio (675 is 56.25% of 1200) */
+    width: 60vw; /* 50% of the viewport's width */
     margin: 20px;
     border: 1px solid #0000ff; 
 }
+
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+    #canvas {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    #canvas {
+        width: 100%;
+    }
+}
+
 
 .button-container {
     display: flex;

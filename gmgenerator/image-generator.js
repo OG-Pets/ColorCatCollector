@@ -7,7 +7,7 @@ generateBtn.addEventListener('click', generateImage);
 downloadBtn.addEventListener('click', downloadImage);
 
 function getRandomImage(layer) {
-    const index = Math.floor(Math.random() * 5) + 1; // assumes 5 images per layer, adjust as needed
+    const index = Math.floor(Math.random() * 8) + 1; // assumes 5 images per layer, adjust as needed
     return fetch(`assets/${layer}/layer${layer}-${index}.png`) // adjust the path as needed
         .then(response => response.blob())
         .then(blob => createImageBitmap(blob));

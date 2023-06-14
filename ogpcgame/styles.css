@@ -46,3 +46,14 @@ body {
     height: auto; /* Reset the height to auto for larger screens */
   }
 }
+
+
+.homepage-link {
+  display: block;
+  margin: 20px auto 0 auto;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+}
+

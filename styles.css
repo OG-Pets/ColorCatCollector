@@ -42,8 +42,8 @@ body {
   
   .button {
     font-family: 'Press Start 2P', cursive;
-    padding: 25px;
-    margin: 10px;
+    padding: 20px;
+    margin: 0px;
     font-size: 12px;
     color: #ffffff;
     background-color: #0000ff;
@@ -56,8 +56,21 @@ body {
     max-width: 300px;
     box-sizing: border-box;
     z-index: 1;
-    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
-  }
+    line-height: 1.5;
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
+}
+
+.button::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
   
   .button:hover {
     background-color: #0000ff;
@@ -87,8 +100,20 @@ body {
     box-sizing: border-box;
     z-index: 1;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
   }
   
+  .buttong::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
   .buttong:hover {
     background-color: #9046F4;
     color: #4AF39A;
@@ -117,8 +142,20 @@ body {
     box-sizing: border-box;
     z-index: 1;
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
   }
   
+  .buttonm::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
   
   .buttonm:hover {
     background-color: #feda4a;

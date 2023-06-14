@@ -130,9 +130,19 @@ body {
 
 
 .homepage-link {
-  display: inline-block;
-  margin-top: 20px;
+  display: block;
+  margin: 20px auto 0 auto;
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  text-align: center;
+}
+
+/* Add this */
+.homepage-link:link, .homepage-link:visited {
+  text-decoration: none;
+}
+
+.homepage-link:hover, .homepage-link:active {
+  text-decoration: underline;
 }

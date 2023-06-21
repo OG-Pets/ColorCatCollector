@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "qartjs": "^1.2.0",
+    "qr-code-styling": "^1.6.0-rc.1",
+    "qrious": "^4.0.2"
+  }
+}

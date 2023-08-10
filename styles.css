@@ -169,6 +169,155 @@ body {
     box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
   }
 
+  .buttonq {
+    font-family: 'Press Start 2P', cursive;
+    padding: 25px;
+    margin: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #0099cc, #66ccff, #33bb55, #ffcc66, #ff9933);
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
+  }
+  
+  .buttonq::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
+  
+  .buttonq:hover {
+    background-color: #feda4a;
+    color: #000;
+    transform: translateY(-2px);
+  }
+  
+  .buttonm:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
+
+  
+  .button8ball:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  .button8ball {
+    font-family: 'Press Start 2P', cursive;
+    padding: 25px;
+    margin: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #202123; /* 8-ball black color */
+    border: 0px solid #ffffff; /* White border */
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button8ball::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5); /* 8-ball white accent */
+  }
+  
+  .button8ball:hover {
+    background-color: #333; /* Slightly lighter color on hover */
+    color: #ffffff; /* Blue color for the text */
+    transform: translateY(-2px);
+  }
+  
+  .button8ball:active {
+    animation: shake 0.5s; /* Shake animation on click */
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+ 
+  @keyframes shake {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-10px, 0); }
+    20% { transform: translate(10px, 0); }
+    30% { transform: translate(-10px, 0); }
+    40% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    60% { transform: translate(10px, 0); }
+    70% { transform: translate(-10px, 0); }
+    80% { transform: translate(10px, 0); }
+    90% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }
+
+
+  #answer {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 20px;
+    color: rgba(0, 0, 254, 1);
+    
+    padding: 20px;
+    border-radius: 0px;
+    opacity: 0;
+    text-align: center;
+    z-index: 100;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0px 0px 100px 20px rgba(0, 0, 254, 0.6);; /* Large shadow */
+  }
+  
+  
+  #answer.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  #answer.zoom-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  
+
+
+
+
+
+
+
+
   @media screen and (max-width: 480px) {
     .button {
      padding: 25px;

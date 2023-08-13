@@ -6,7 +6,7 @@ const downloadBtn = document.getElementById('download-btn');
 // Load and draw the default image as soon as the page loads
 window.addEventListener('load', loadDefaultImage);
 generateBtn.addEventListener('click', () => {
-    if (Math.random() < 0.05) { // 10% chance to pick a pre-generated image
+    if (Math.random() < 0.03) { // 10% chance to pick a pre-generated image
         pickPreGeneratedImage();
     } else { // 90% chance to generate a new image
         generateImage();
@@ -34,7 +34,7 @@ function getRandomImage(layer) {
 }
 
 function getRandomPreGeneratedImage() {
-    const index = Math.floor(Math.random() * 1) + 1;
+    const index = Math.floor(Math.random() * 2) + 1;
     return fetch(`assets/4/image${index}.png`)
         .then(response => response.blob())
         .then(blob => createImageBitmap(blob));

@@ -384,8 +384,10 @@ body {
   transform: translate(-50%, -50%) scale(0);
 }
 
+
 @media screen and (max-width: 480px) {
   .button {
     padding: 25px;
   }
 }
+

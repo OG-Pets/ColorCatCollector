@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Image Generator</title>
+</head>
+<body>
+    <h1 class="title">GAS H3RO GM GENERATOR</h1>
+
+    <div id="canvas-container">
+        <canvas id="canvas" width="1200" height="675"></canvas>
+    </div>
+    
+
+    <div class="button-container">
+        <button id="generate-btn" class="button">GENERATE GM IMAGE</button>
+        <button id="download-btn" class="buttond">DOWNLOAD</button>
+    </div>
+    <br>
+    <br>
+    <a href="https://ogpets.xyz/" class="homepage-link">> Homepage <</a>
+    <br>
+    <br>
+    <script src="image-generator.js"></script>
+    <script>
+        for (let i = 0; i < 150; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+          star.style.opacity = Math.random();
+          star.style.top = `${Math.random() * 100}vh`;
+          document.body.appendChild(star);
+        }
+      </script>
+</body>
+
+</html>

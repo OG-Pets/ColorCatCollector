@@ -1,0 +1,176 @@
+.title {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* change to 'column' for vertical alignment */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+  
+  .star {
+    position: absolute;
+    background-color: #fff;
+    width: 6px;
+    height: 6px;
+    z-index: -1;
+    animation: moveStar linear infinite;
+  }
+  
+  @keyframes moveStar {
+    from {transform: translateY(-100%);}
+    to {transform: translateY(100%);}
+  }
+  
+  .button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+    margin: 0px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #8d63eb;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
+  }
+
+  .button::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
+  
+  .button:hover {
+    background-color: #6141a5;
+    color: #4AF39A;
+    transform: translateY(-2px);
+  }
+  
+  .button:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttond {
+    font-family: 'Press Start 2P', cursive;
+    padding: 20px;
+    margin: 0px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #8d63eb;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    position: relative; /* position relative to allow the pseudo element to be positioned relative to the button */
+    overflow: hidden; /* hide the pseudo element outside the button */
+  }
+
+  .buttond::after {
+    content: ""; /* necessary for the pseudo element to be displayed */
+    position: absolute; /* position the pseudo element absolutely */
+    bottom: 0; /* position it at the bottom of the button */
+    left: 0; /* position it at the left of the button */
+    width: 100%; /* make it the full width of the button */
+    height: 5px; /* adjust the height as necessary */
+    background: rgba(0, 0, 0, 0.5); /* make it dark and semi-transparent */
+}
+
+  
+  .buttond:hover {
+    background-color: #fbd56b;
+    color: #000;
+    transform: translateY(-2px);
+  }
+  
+  .buttond:active {
+    transform: translateY(1px);
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  #canvas {
+    width: 60vw; /* 50% of the viewport's width */
+    margin: 20px;
+    border: 1px solid #0000ff; 
+}
+
+#canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+    #canvas {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    #canvas {
+        width: 100%;
+    }
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Optional: To add some space between the buttons */
+}
+
+
+.homepage-link {
+  display: block;
+  margin: 20px auto 0 auto;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Add this */
+.homepage-link:link, .homepage-link:visited {
+  text-decoration: none;
+}
+
+.homepage-link:hover, .homepage-link:active {
+  text-decoration: underline;
+}

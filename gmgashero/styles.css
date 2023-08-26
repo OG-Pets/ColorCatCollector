@@ -126,7 +126,7 @@ body {
   #canvas {
     width: 60vw; /* 50% of the viewport's width */
     margin: 20px;
-    border: 1px solid #0000ff; 
+    border: 1px solid #fbd56b; 
 }
 
 #canvas-container {
